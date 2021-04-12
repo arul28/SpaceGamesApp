@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".IntroRules">
+
+<!--    This creates the linear  layout to hold the title of the rules page at the top of the screen-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rulestitle"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="20dp">
+
+<!--        Setting the text-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="RULES"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="50sp"
+            tools:layout_editor_absoluteX="131dp"
+            tools:layout_editor_absoluteY="0dp">
+        </TextView>
+
+    </LinearLayout>
+
+<!--    Second linearlayout to hold an image under title, not currently working. Unknown bug-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rulestitle"
+        android:weightSum="1">
+
+
+    </LinearLayout>
+
+<!--    Third linear layout which holds the text view for the main paragraph of instructions on how to play-->
+    <LinearLayout
+        android:id="@+id/paragraph"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="Hello welcome to Alien-Asteroid-Spaceship-Planet-Sun!\n\n\n\nI will tell you guys exactly how this game works, there are 5 options you can choose from -- Alien, Asteroid, Spaceship, Planet, and Sun. \n\nAlien beats spaceship because we can take control of it and also planet because we can invade the planet. Asteroid also beats spaceship because it can crash into it and they also destroy planets and aliens. Spaceships beat planets and the Sun because they can fly away from them. The sun beats Aliens and asteroids since it can burn them. And finally, planets beat the sun because they can orbit around the sun."
+            android:gravity="center_horizontal">
+
+        </TextView>
+    </LinearLayout>
+
+<!--    Fourth linear layout which holds the 3 buttons which let you pick yout game length at the very bottom of the screen-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="397dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:weightSum="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/bestof3"
+            android:layout_width="155dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="120dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Best of 3"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginStart="120dp" />
+
+        <Button
+            android:id="@+id/bestof5"
+            android:layout_width="155dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="120dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Best 0f 5"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginStart="120dp" />
+
+        <Button
+            android:id="@+id/bestof7"
+            android:layout_width="155dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="120dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="Best of 7"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginStart="120dp" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

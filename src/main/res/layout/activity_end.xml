@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/EndScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".WhackaSpaceshipMainActivity">
+
+<!-- creates the end screen layout  withe 3 text objects, one for the reason the game ended, one to label the score, and one for the score value-->
+    <TextView
+        android:id="@+id/ReasonString"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".75"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="75sp" />
+
+    <RelativeLayout
+        android:id="@+id/row0"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".5"
+        android:orientation="horizontal">
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/ScoreText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".5"
+        android:gravity="center"
+        android:text="Score:"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/FinalScoreValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".5"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
+</LinearLayout>

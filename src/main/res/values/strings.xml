@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Space Games</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
+    <string name="fourth_fragment_label">Fourth Fragment</string>
+    <string name="fifth_fragment_label">Fifth Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="first_game">First Game</string>
+    <string name="second_game">Second Game</string>
+    <string name="third_game">Third Game</string>
+    <string name="fourth_game">Fourth Game</string>
+
+    <string name="timelabel">Time:</string>
+    <string name="zero">0</string>
+    <string name="scorelabel">Score:</string>
+    <string name="outoftime">You are out of Time!</string>
+    <string name="outoflives">You ran out of lives!</string>
+
+    <string name="title_Memory">Memory Game</string>
+    <string name="menu_option_4x4_game">EASY</string>
+    <string name="menu_option_6x6_game">HARD</string>
+
+</resources>

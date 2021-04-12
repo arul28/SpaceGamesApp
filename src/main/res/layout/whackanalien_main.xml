@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Sets up a relative layout that matches the parent screen so the layout can work for many screens-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".WhackaSpaceshipMainActivity">
+
+
+<!-- creates a layout that is set at the top of the screen, height is set to wrap content so it will end where the images end, few pixel values are defined as to make the layout work on a number of screens -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--sets up the image view for each blaster representing the player's lives-->
+
+        <ImageView
+            android:id="@+id/blasterImage1"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/alienblaster"
+             />
+
+        <ImageView
+            android:id="@+id/blasterImage2"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/blasterImage1"
+            android:layout_toRightOf="@+id/blasterImage1"
+            android:src="@drawable/alienblaster" />
+
+        <ImageView
+            android:id="@+id/blasterImage3"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/blasterImage2"
+            android:layout_toRightOf="@+id/blasterImage2"
+            android:src="@drawable/alienblaster" />
+
+        <ImageView
+            android:id="@+id/blasterImage4"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toEndOf="@+id/blasterImage3"
+            android:layout_toRightOf="@+id/blasterImage3"
+            android:src="@drawable/alienblaster" />
+
+        <ImageView
+            android:id="@+id/blasterImage5"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/blasterImage4"
+            android:layout_toRightOf="@+id/blasterImage4"
+            android:src="@drawable/alienblaster"
+            android:visibility="visible" />
+
+        <!--Creates text view for the time as well as the number representing how much time is left-->
+
+        <TextView
+            android:id="@+id/timelabel"
+            android:layout_width="90dp"
+            android:layout_height="26dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="134dp"
+            android:layout_marginLeft="134dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@+id/timevalue"
+            android:layout_toLeftOf="@+id/timevalue"
+            android:layout_toEndOf="@+id/blasterImage5"
+            android:layout_toRightOf="@+id/blasterImage5"
+            android:text="@string/timelabel"
+            android:textColor="@color/white"
+            android:textSize="10pt" />
+
+        <!-- the number representing remaining time is given an id "timevalue" which is references and updated in the main activity, by referencing ids the java class cna interact with the gui-->
+        <TextView
+            android:id="@+id/timevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="@string/zero"
+            android:textColor="@color/white"
+            android:textSize="10pt" />
+
+    </RelativeLayout>
+
+    <!-- this portion creates a linear layout with 4 rows, one empty spacer row at the top and 3 rows with aliens and asteroids-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomBar"
+        android:layout_below="@id/topBar"
+        android:orientation="vertical"
+        android:weightSum="3.75">
+
+        <RelativeLayout
+            android:id="@+id/row0"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".25"
+            android:orientation="horizontal">
+
+        </RelativeLayout>
+
+        <!-- each row is split into two layouts, the top is empty while the bottom is set up to display an alien and then an asteroid over the alien in the same row-->
+        <!-- when the id of the alienImage is translated upwards in the java class, it should appear over the empty row while still being covered by the asteroid in the bottom-->
+        <RelativeLayout
+            android:id="@+id/row1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <!-- creates one layout with the aliens in one row -->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/alienImage1"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage2"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage3"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+            </LinearLayout>
+
+            <!-- creates an overlaying layout with asteroids covering the aliens in the bottom row and an empty top row where the aliens would be visible-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".7"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/asteroid1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="117"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="141"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="128"
+                        app:srcCompat="@drawable/asteroid_preview" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/row2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/alienImage4"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage5"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage6"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".7"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/asteroid4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="141"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="117"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="128"
+                        app:srcCompat="@drawable/asteroid_preview" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/row3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/alienImage7"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage8"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible"
+                    app:srcCompat="@drawable/alien" />
+
+                <ImageView
+                    android:id="@+id/alienImage9"
+                    android:onClick="onClick"
+                    android:layout_width="90dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:paddingBottom="10dp"
+                    app:srcCompat="@drawable/alien" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.3"></LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".7"
+                    android:weightSum="3">
+
+                    <ImageView
+                        android:id="@+id/asteroid7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="37"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="120"
+                        app:srcCompat="@drawable/asteroid_preview" />
+
+                    <ImageView
+                        android:id="@+id/asteroid9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:rotation="145"
+                        app:srcCompat="@drawable/asteroid_preview" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+<!-- creates the bottom row with text view objects for the score and score value-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomBar"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/scorelabel"
+            android:textColor="@color/white"
+            android:id="@+id/scorelabel"
+            android:textSize="12pt"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
+        <TextView
+            android:id="@+id/scorevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/scorelabel"
+            android:layout_toRightOf="@+id/scorelabel"
+            android:text="@string/zero"
+            android:textColor="@color/white"
+            android:textSize="12pt" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
